@@ -1,0 +1,16 @@
+9b44fe8640a2c45152a78b7729c9ef61 *DESCRIPTION
+27bf59c2a37bff07a78c9730061e532b *LICENSE
+9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
+8655289e12c0fb324a3f7e094616a04f *R/optimalDesign.q
+71d217451faaab794462a00b46c7c50d *R/print.trex.q
+6d50a07ded1b835b949105e77d09457f *R/trex.q
+1e5ded60d3b0b11315494247a02bb6b0 *R/zzz.trex.q
+1b347e91b99489476e7050203bc15ac1 *README
+d368405f1c604912f51ba286eed9944a *inst/doc/GPL.txt
+a996b63d94178297956771d4e2e79625 *man/optimalDesign.Rd
+0c31aa9d38d60e535739716a3cd997ae *man/trex-internal.Rd
+92594dff52396b30095d6e7cd5cacd9e *man/trex.Rd
+296b73f181eca5215233b59ea92f876e *src/Makevars
+b808121702299eca22b41835742a13d0 *src/trexR.c
+2ace6c2134a0d057ab639c4abe071e97 *src/trexdriver.c
+76cf2c4d084066f8ce9ac29b676afb27 *src/trexdriver.h
