@@ -1,8 +1,11 @@
 #$Author: sinnwell $
-#$Date: 2010/04/05 14:15:13 $
-#$Header: /people/biostat3/sinnwell/Projects/TwoStage/Make/RCS/optimalDesign.q,v 1.1 2010/04/05 14:15:13 sinnwell Exp $
+#$Date: 2011/01/25 21:31:09 $
+#$Header: /projects/genetics/cvs/cvsroot/trex/R/optimalDesign.q,v 1.1.1.1 2011/01/25 21:31:09 sinnwell Exp $
 #$Locker:  $
 #$Log: optimalDesign.q,v $
+#Revision 1.1.1.1  2011/01/25 21:31:09  sinnwell
+#initial for trex package
+#
 #Revision 1.1  2010/04/05 14:15:13  sinnwell
 #Initial revision
 #

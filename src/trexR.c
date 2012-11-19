@@ -1,9 +1,12 @@
 /* $Author: sinnwell $ */
-/* $Date: 2010/03/23 13:37:32 $ */
-/* $Header: /people/biostat3/sinnwell/Projects/TwoStage/Make/RCS/trexR.c,v 1.2 2010/03/23 13:37:32 sinnwell Exp $ */
+/* $Date: 2011/01/25 21:31:09 $ */
+/* $Header: /projects/genetics/cvs/cvsroot/trex/src/trexR.c,v 1.1.1.1 2011/01/25 21:31:09 sinnwell Exp $ */
 /* $Locker:  $ */
 /*
  * $Log: trexR.c,v $
+ * Revision 1.1.1.1  2011/01/25 21:31:09  sinnwell
+ * initial for trex package
+ *
  * Revision 1.2  2010/03/23 13:37:32  sinnwell
  * update with errmsg
  *

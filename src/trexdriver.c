@@ -1,10 +1,13 @@
 /* $Author: sinnwell $ */
-/* $Date: 2010/03/31 18:22:12 $ */
+/* $Date: 2011/01/25 21:31:09 $ */
 /* $Header: /people/biostat3/sinnwell/Projects/TwoStage/Make/RCS/trexdriver.c,v 
 1.1 2010/03/17 20:44:18 sinnwell Exp sinnwell $ */
 /* $Locker:  $ */
 /*
  * $Log: trexdriver.c,v $
+ * Revision 1.1.1.1  2011/01/25 21:31:09  sinnwell
+ * initial for trex package
+ *
  * Revision 1.4  2010/03/31 18:22:12  sinnwell
  * declare flogm and factlm before any goto m600
  *
@@ -129,7 +132,7 @@ void trexDriver(int threshold,
     {
       if(colTot[j] <= 0 )
 	{
-	  printf("Error: total col[%d] = %d\n", j, colTot[j]);
+	  REprintf("Error: total col[%d] = %d\n", j, colTot[j]);
 	  errmsg("Ending program\n");
 	}
     }
@@ -143,7 +146,7 @@ void trexDriver(int threshold,
      
       if(rowTot[i] <= 0 )
 	{
-	  printf("Error: total row[%d] = %d\n", i, rowTot[i]);	  
+	  REprintf("Error: total row[%d] = %d\n", i, rowTot[i]);	  
           errmsg("Row totals not sufficient\n");
 	}
     }
@@ -174,14 +177,14 @@ void trexDriver(int threshold,
   nenum = enumTableAll(nrow, ncol, rowTot, colTot, &ifault, tableVec, ntables);
   if(ifault != 0)
     {
-      // printf("Error: ifault = %d, nenum = %d, ntables = %d\n", ifault, nenum, ntables);
+      // REprintf("Error: ifault = %d, nenum = %d, ntables = %d\n", ifault, nenum, ntables);
       // exit(1);
       errmsg("Error: ifault problem in enumTableAll\n");
     }
 
 
   if(nenum != ntables){
-    // printf("Error: no. enumerated tables (%d) != number expected (%d)\n", nenum, ntables);
+    // REprintf("Error: no. enumerated tables (%d) != number expected (%d)\n", nenum, ntables);
     // exit(1);
     errmsg("Error, number of enumerated tables not same as expected.\n");
   }
@@ -207,15 +210,15 @@ void trexDriver(int threshold,
   ngroups = tableVec[ntables-1].group;
 
   //if(verbose) {  /* Output */
-  //  printf("Counts of tables\n");
-  //  printf("  enumerated 3x2: %d\n", ntables);
-  //  printf("    excluded 3x2: %d\n", ntablesExcluded);
-  //  printf("    included 3x2: %d\n", ntables - ntablesExcluded);
-  //  printf("      unique 2x2: %d\n", ngroups);
+  //  REprintf("Counts of tables\n");
+  //  REprintf("  enumerated 3x2: %d\n", ntables);
+  //  REprintf("    excluded 3x2: %d\n", ntablesExcluded);
+  //  REprintf("    included 3x2: %d\n", ntables - ntablesExcluded);
+  //  REprintf("      unique 2x2: %d\n", ngroups);
   
-    // printf("\n\n=========== After code group ===================\n\n");
+    // REprintf("\n\n=========== After code group ===================\n\n");
     // printTableVec(tableVec, ntables);  
-    // printf("Number of tables = %d, number of groups for 2x2 tables = %d\n", ntables, ngroups);
+    // REprintf("Number of tables = %d, number of groups for 2x2 tables = %d\n", ntables, ngroups);
   // }
 
   /* compute probabilities of equivalence classes */
@@ -260,19 +263,19 @@ void trexDriver(int threshold,
 
   if(indexObs < 0 || indexObs >= ntables)
     {
-      //     printf("Error: indexObs (%d) for observed table out of range (0, %d)\n", indexObs, ntables - 1);
+      //     REprintf("Error: indexObs (%d) for observed table out of range (0, %d)\n", indexObs, ntables - 1);
       // exit(1);
       errmsg("Error: table index out of range\n");
     }
 
   if(verbose) {
-    printf("\nObserved 2x2 table\n");
+    REprintf("\nObserved 2x2 table\n");
     for(i=1; i<=2; i++){
-      printf(" ");
+      REprintf(" ");
       for(j=1; j<=2; j++){
-	printf("%d ", tableVec[indexObs].t32[i-1][j-1]);
+	REprintf("%d ", tableVec[indexObs].t32[i-1][j-1]);
       }
-      printf("\n");
+      REprintf("\n");
     }
   }
 
@@ -283,12 +286,12 @@ void trexDriver(int threshold,
 		     fisher2sided, fisher1sided, fisherSign);
 
   // if(verbose) {
-  //  printf("\n\n===================  Possible 2x2 Tables  ========================\n\n");
+  //  REprintf("\n\n===================  Possible 2x2 Tables  ========================\n\n");
   //  print22Tables(tableVec,ngroups);
   // }
 
   // free allocated objects
-  // printf("Freeing memory in trexC...\n");
+  // REprintf("Freeing memory in trexC...\n");
   free_ivector(rowTot, 1, nrow);
   free_ivector(colTot, 1, ncol);
 
@@ -392,7 +395,7 @@ int enumTableAll(int nrow,int ncol,int *rowmarg, int *colmarg, int *ifault,
      objects are also used in trexC, where Calloc() and Free() are used instead 
      of malloc() and free()
 
-  3) As in trexC, all printf statements are within if(DEBUG) {} 
+  3) As in trexC, all REprintf statements are within if(DEBUG) {} 
      and all stop-errors are handled by errmsg()
  
   */
@@ -1034,7 +1037,7 @@ int enumTableAll(int nrow,int ncol,int *rowmarg, int *colmarg, int *ifault,
    c600:
    // Free allocated containers, 
    // which may not get done with all the goto-s
-   //printf("Freeing memory in enumTables...\n");
+   //REprintf("Freeing memory in enumTables...\n");
    free_ivector(z, 1, maxrc);
    free_ivector(rept, 1, maxrc);
    free_ivector(reps, 1, maxrc);
@@ -1065,18 +1068,18 @@ void print_imatrix(int ** mat, int nrow, int ncol, int transpose){
     {
       for(i=1; i <= ncol; i++){
 	for(j=1; j <= nrow; j++){
-	  printf("%6d ", mat[j][i]);
+	  REprintf("%6d ", mat[j][i]);
 	}
-	printf("\n");
+	REprintf("\n");
       }
     } 
   else
     {
       for(i=1; i <= nrow; i++){
 	for(j=1; j <= ncol; j++){
-	  printf("%6d ", mat[i][j]);
+	  REprintf("%6d ", mat[i][j]);
 	}
-	printf("\n");
+	REprintf("\n");
       }
     }
 
@@ -1213,7 +1216,7 @@ void errmsg(char *string){
   
   // PROBLEM and RECOVER are defined as below in RS.h, 
   // define them in trexdriver.h if USING_R is not defined.
-  // #define PROBLEM  {char R_problem_buf[R_PROBLEM_BUFSIZE];(sprintf)(R_problem_buf,
+  // #define PROBLEM  {char R_problem_buf[R_PROBLEM_BUFSIZE];(sREprintf)(R_problem_buf,
   // #define RECOVER(x)  ),error(R_problem_buf);}
   // #define WARNING(x)	),warning(R_problem_buf);}
 
@@ -1303,14 +1306,14 @@ void printTableVec(TABLE * tableVec, int ntables){
   int i, j, k;
   for(k=0; k < ntables; k++){
 
-    printf("table[%d]: group = %d, last = %d, exlude = %d\n", tableVec[k].index, tableVec[k].group, tableVec[k].last, tableVec[k].exclude);
-    printf("           prob = %f, groupCumProb = %f\n", tableVec[k].prob, tableVec[k].groupCumProb);
+    REprintf("table[%d]: group = %d, last = %d, exlude = %d\n", tableVec[k].index, tableVec[k].group, tableVec[k].last, tableVec[k].exclude);
+    REprintf("           prob = %f, groupCumProb = %f\n", tableVec[k].prob, tableVec[k].groupCumProb);
 
     for(i=0; i<3; i++){
       for(j=0; j<2; j++){
-	printf("%6d ",tableVec[k].t32[i][j]);
+	REprintf("%6d ",tableVec[k].t32[i][j]);
       }
-      printf("\n");
+      REprintf("\n");
     }
   }
 
@@ -1326,13 +1329,13 @@ void print22Tables(TABLE * tableVec, int ntables){
   int i, j, k;
   for(k=0; k < ntables; k++){
 
-    printf("table[%3d]: chistat = %f, sign = %d,  prob = %f\n", k+1, tableVec[k].chistat, tableVec[k].chistatSign,tableVec[k].groupCumProb);
+    REprintf("table[%3d]: chistat = %f, sign = %d,  prob = %f\n", k+1, tableVec[k].chistat, tableVec[k].chistatSign,tableVec[k].groupCumProb);
 
     for(i=0; i<2; i++){
       for(j=0; j<2; j++){
-	printf("%6d ",tableVec[k].t32[i][j]);
+	REprintf("%6d ",tableVec[k].t32[i][j]);
       }
-      printf("\n");
+      REprintf("\n");
     }
   }
 

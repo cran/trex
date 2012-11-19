@@ -1,8 +1,11 @@
 #$Author: sinnwell $
-#$Date: 2010/03/24 15:02:24 $
-#$Header: /people/biostat3/sinnwell/Projects/TwoStage/Make/RCS/trex.q,v 1.3 2010/03/24 15:02:24 sinnwell Exp $
+#$Date: 2011/01/25 21:31:09 $
+#$Header: /projects/genetics/cvs/cvsroot/trex/R/trex.q,v 1.1.1.1 2011/01/25 21:31:09 sinnwell Exp $
 #$Locker:  $
 #$Log: trex.q,v $
+#Revision 1.1.1.1  2011/01/25 21:31:09  sinnwell
+#initial for trex package
+#
 #Revision 1.3  2010/03/24 15:02:24  sinnwell
 #remove chiSign and fisherSign from result
 #

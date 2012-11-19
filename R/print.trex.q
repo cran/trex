@@ -1,8 +1,11 @@
 #$Author: sinnwell $
-#$Date: 2010/03/23 13:12:50 $
-#$Header: /people/biostat3/sinnwell/Projects/TwoStage/Make/RCS/print.trex.q,v 1.2 2010/03/23 13:12:50 sinnwell Exp $
+#$Date: 2011/01/25 21:31:09 $
+#$Header: /projects/genetics/cvs/cvsroot/trex/R/print.trex.q,v 1.1.1.1 2011/01/25 21:31:09 sinnwell Exp $
 #$Locker:  $
 #$Log: print.trex.q,v $
+#Revision 1.1.1.1  2011/01/25 21:31:09  sinnwell
+#initial for trex package
+#
 #Revision 1.2  2010/03/23 13:12:50  sinnwell
 #changes suggested by Dan, to match stand-alone output
 #

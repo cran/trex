@@ -1,0 +1,145 @@
+
+R version 2.15.0 (2012-03-30)
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ##
+> ## Demo file for trex package, a truncated exact test for
+> ## 2-stage case-control designs for genetic studies of rare variants
+> ##
+> 
+> 
+> ## load trex package like this:
+> require(trex)
+Loading required package: trex
+> 
+> args(trex) 
+function (tab32, threshold = 2) 
+NULL
+> 
+> ## The below examples are in the help file, runnable by:
+> ##    R> example(trex)
+> 
+> 
+> 
+> ## test like this:
+> 
+> tab11 <- cbind(c(2,1,8), c(46,46,98))
+> out11 <- trex(tab11, threshold=2)
+> 
+> print.trex(out11)
+
+Threshold =  2 
+
+Observed 3x2 table:
+         positive negative
+case1           2       46
+case2           1       46
+control2        8       98
+
+Observed 2x2 table:
+        positive negative
+case           3       92
+control        8       98
+
+Null probability of excluded tables =  0.2132944 
+
+Chi-square statistic:
+  chi-square =  1.865799 
+pval 2-sided =  0.1713587 
+pval 1-sided =  0.9885226 
+
+Fisher's p-values:
+pval 2-sided =  0.1006931 
+pval 1-sided =  0.9885226 
+
+> 
+> 
+> 
+> tab10 <- cbind(c(8, 0, 2), c(92, 0, 98))
+> out10 <- trex(tab10, threshold=2)
+> 
+> print(out10)
+
+Threshold =  2 
+
+Observed 3x2 table:
+         positive negative
+case1           8       92
+case2           0        0
+control2        2       98
+
+Observed 2x2 table:
+        positive negative
+case           8       92
+control        2       98
+
+Null probability of excluded tables =  0.00924384 
+
+Chi-square statistic:
+  chi-square =  3.789474 
+pval 2-sided =  0.09215305 
+pval 1-sided =  0.05074157 
+
+Fisher's p-values:
+pval 2-sided =  0.09215305 
+pval 1-sided =  0.05074157 
+
+> 
+> 
+> # try a different threshold:
+> out10.t4 <- trex(tab10, threshold=4)
+> 
+> print(out10.t4)
+
+Threshold =  4 
+
+Observed 3x2 table:
+         positive negative
+case1           8       92
+case2           0        0
+control2        2       98
+
+Observed 2x2 table:
+        positive negative
+case           8       92
+control        2       98
+
+Null probability of excluded tables =  0.1655646 
+
+Chi-square statistic:
+  chi-square =  3.789474 
+pval 2-sided =  0.06024735 
+pval 1-sided =  0.06024735 
+
+Fisher's p-values:
+pval 2-sided =  0.06024735 
+pval 1-sided =  0.06024735 
+
+> 
+> 
+> 
+> # this should get an error before the C function
+> # out11.fail <- trex(tab11, threshold=3)
+> # Error in trex(tab11, threshold = 3) : Stage 1 does not meet threshold.
+> 
+> #tab0 <- cbind(c(8,2,0), c(42, 48, 0))
+> #out0.fail <- trex(tab0, threshold=2)
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.211   0.064   0.386 

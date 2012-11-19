@@ -1,9 +1,12 @@
 %- $Author: sinnwell $
-%- $Date: 2010/04/05 13:25:06 $
-%- $Header: /people/biostat3/sinnwell/Projects/TwoStage/Make/RCS/trex-internal.Rd,v 1.2 2010/04/05 13:25:06 sinnwell Exp $
+%- $Date: 2011/01/25 21:31:09 $
+%- $Header: /projects/genetics/cvs/cvsroot/trex/man/trex-internal.Rd,v 1.1.1.1 2011/01/25 21:31:09 sinnwell Exp $
 %- $Locker:  $
 % 
 % $Log: trex-internal.Rd,v $
+% Revision 1.1.1.1  2011/01/25 21:31:09  sinnwell
+% initial for trex package
+%
 % Revision 1.2  2010/04/05 13:25:06  sinnwell
 % *** empty log message ***
 %

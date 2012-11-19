@@ -1,0 +1,107 @@
+
+R version 2.15.0 (2012-03-30)
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> ## Test script for optimalDesign function in trex package;
+> 
+> require(trex)
+Loading required package: trex
+> 
+> 
+> ######### examples presented in Table 4, Schaid and Sinnwell (Human Genetics)
+> 
+> example1 <- optimalDesign(probCarrier=.01, or=5, alpha=.05, power=.9)
+> 
+> example2 <- optimalDesign(probCarrier=.05, or=5, alpha=.05, power=.9)
+> 
+> example1
+$probCarrier
+[1] 0.01
+
+$or
+[1] 5
+
+$alpha
+[1] 0.05
+
+$power
+[1] 0.9
+
+[[5]]
+  Ntotal Power.cond Ncase1 Threshold ProbStopNull ProbStopAlt ESN.Null
+1    690  0.9102185    203         4    0.8525663  0.01089750 274.8002
+2    720  0.9202232    184         4    0.8857445  0.02135439 245.2409
+3    754  0.9303015    172         4    0.9047758  0.03225526 227.4205
+4    792  0.9401498    164         4    0.9165547  0.04220718 216.4037
+5    838  0.9503217    158         4    0.9248873  0.05146090 209.0766
+6    892  0.9601781    152         4    0.9327762  0.06254533 201.7456
+7    962  0.9702151    148         4    0.9377836  0.07109953 198.6441
+8   1058  0.9801267    144         4    0.9425865  0.08069760 196.4760
+9   1218  0.9900218    168         5    0.9723588  0.08986962 197.0233
+    ESN.Alt Optimal
+1  684.6929   FALSE
+2  708.5540   FALSE
+3  735.2274   FALSE
+4  765.4939   FALSE
+5  803.0066   FALSE
+6  845.7165   FALSE
+7  904.1250   FALSE
+8  984.2424    TRUE
+9 1123.6369   FALSE
+
+> 
+> example2
+$probCarrier
+[1] 0.05
+
+$or
+[1] 5
+
+$alpha
+[1] 0.05
+
+$power
+[1] 0.9
+
+[[5]]
+  Ntotal Power.cond Ncase1 Threshold ProbStopNull ProbStopAlt ESN.Null  ESN.Alt
+1    156  0.9100857     44         4    0.8234890  0.01097162 63.76923 154.7712
+2    164  0.9219198     47         5    0.9154736  0.02111611 56.88959 161.5294
+3    172  0.9322911     44         5    0.9325244  0.03333166 52.63688 167.7335
+4    180  0.9413631     36         4    0.8963212  0.04100813 50.92975 174.0948
+5    190  0.9511010     41         5    0.9474657  0.05181332 48.82762 182.2798
+6    202  0.9607741     40         5    0.9519717  0.05979726 47.78058 192.3128
+7    218  0.9708786     39         5    0.9562407  0.06887375 46.83292 205.6716
+8    238  0.9800497     38         5    0.9602734  0.07916288 45.94533 222.1674
+9    274  0.9900498     37         5    0.9640715  0.09079159 45.51506 252.4824
+  Optimal
+1   FALSE
+2   FALSE
+3   FALSE
+4   FALSE
+5   FALSE
+6   FALSE
+7   FALSE
+8   FALSE
+9    TRUE
+
+> 
+> 
+> proc.time()
+   user  system elapsed 
+ 41.469   0.162  41.757 

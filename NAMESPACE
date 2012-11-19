@@ -1,5 +1,5 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
+useDynLib(trex)
+export(trex, print.trex, optimalDesign)
+S3method(print, trex)
 
-# Export all names
-exportPattern(".")
+
