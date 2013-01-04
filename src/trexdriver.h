@@ -7,7 +7,7 @@
 #define FREE_ARG char*
 
 #ifdef USING_R
-#include <R.h>
+#include <S.h>
 #else
 #define RECOVER(x)   ); exit(1);}
 #define PROBLEM     {printf(

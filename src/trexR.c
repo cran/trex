@@ -21,6 +21,7 @@
  * * 
  */
 #include "trexdriver.h"
+#include <R.h>
 
 void trexR(int *threshold,  // input, threshold count of rare variants
 	   int *tablevec,   // input, vector to fill 3x2 obsTable

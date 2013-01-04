@@ -11,25 +11,11 @@
 #
 #
 #
-#
 
-.onLoad <- function(lib, pkg) {
-   library.dynam("trex", pkg, lib)
-}
-
-.onAttach <- function(lib, pkg) {
-   library.dynam("trex", pkg, lib)
-}
-
-##.First.lib <- function(lib, pkg) {
-##
-##library.dynam("trex", pkg, lib)
-##}
-
-
-.Last.lib <- function(libpath) {
-  library.dynam.unload("trex", libpath)
-}
+## with namespace, not needed
+#.onLoad <- function(lib, pkg) {
+#   library.dynam("trex", pkg, lib)
+#}
 
 .onUnload <- function(libpath) {
   library.dynam.unload("trex", libpath)
